@@ -273,3 +273,98 @@ ActiveRecord::StatementInvalid (SQLite3::ConstraintException: users.username may
   Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
   Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
   Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-20 16:40:29 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhppOs7jEi6lfXQllSndLO5t/8VIs2Xe9QZWFxFQb34=", "user"=>{"email"=>"kevlar.eq@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'kevlar.eq@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("created_at", "crypted_password", "email", "salt", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 20 Jan 2014 21:40:29 UTC +00:00], ["crypted_password", "$2a$10$dhV9QEJ53BUh1bdC4zbta.Qh.wnRco77T2JWEzxoYvHjkMdDkqLYe"], ["email", "kevlar.eq@gmail.com"], ["salt", "uqrFv33UyimDN9qkp7iF"], ["updated_at", Mon, 20 Jan 2014 21:40:29 UTC +00:00]]
+SQLite3::ConstraintException: users.username may not be NULL: INSERT INTO "users" ("created_at", "crypted_password", "email", "salt", "updated_at") VALUES (?, ?, ?, ?, ?)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 176ms
+
+ActiveRecord::StatementInvalid (SQLite3::ConstraintException: users.username may not be NULL: INSERT INTO "users" ("created_at", "crypted_password", "email", "salt", "updated_at") VALUES (?, ?, ?, ?, ?)):
+  app/controllers/users_controller.rb:31:in `block in create'
+  app/controllers/users_controller.rb:30:in `create'
+
+
+  Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-20 16:41:01 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 784ms (Views: 315.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/user_sessions.css?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/user_sessions.js?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-20 16:41:02 -0500
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-20 16:41:07 -0500
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (98.3ms)
+  Rendered users/new.html.erb within layouts/application (104.4ms)
+Completed 200 OK in 120ms (Views: 117.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-20 16:41:14 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhppOs7jEi6lfXQllSndLO5t/8VIs2Xe9QZWFxFQb34=", "user"=>{"email"=>"kevlar.eq@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'kevlar.eq@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+  [1m[36mSQL (6.1ms)[0m  [1mINSERT INTO "users" ("created_at", "crypted_password", "email", "salt", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 20 Jan 2014 21:41:14 UTC +00:00], ["crypted_password", "$2a$10$jmFZPtz8.YjK/tbTS19vvuNujOgMKFcxfsUzAsjMC/y1S9nA01syK"], ["email", "kevlar.eq@gmail.com"], ["salt", "KMyESs4zRbzWWAJss57q"], ["updated_at", Mon, 20 Jan 2014 21:41:14 UTC +00:00]]
+SQLite3::ConstraintException: users.username may not be NULL: INSERT INTO "users" ("created_at", "crypted_password", "email", "salt", "updated_at") VALUES (?, ?, ?, ?, ?)
+  [1m[35m (0.2ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 176ms
+
+ActiveRecord::StatementInvalid (SQLite3::ConstraintException: users.username may not be NULL: INSERT INTO "users" ("created_at", "crypted_password", "email", "salt", "updated_at") VALUES (?, ?, ?, ?, ?)):
+  app/controllers/users_controller.rb:31:in `block in create'
+  app/controllers/users_controller.rb:30:in `create'
+
+
+  Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /Users/kegaska/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.3ms)
