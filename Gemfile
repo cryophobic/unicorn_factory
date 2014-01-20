@@ -34,6 +34,8 @@ gem 'binding_of_caller'
 
 gem 'pry-rails'
 
+gem 'pg'
+
 group :development do
   gem "better_errors"
 end

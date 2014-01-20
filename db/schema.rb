@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140120205938) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "users", force: true do |t|
     t.string   "username",                        null: false
     t.string   "email"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140120205938) do
     t.datetime "reset_password_email_sent_at"
   end
 
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
 end
