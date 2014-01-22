@@ -1,9 +1,10 @@
 UnicornFactory::Application.routes.draw do
+  get "welcome/index"
   resources :user_sessions
   resources :users
   resources :password_resets
 
-  root :to => 'users#index'
+  root :to => 'welcome#index'
 
 
   get 'login' => 'user_sessions#new', :as => :login
