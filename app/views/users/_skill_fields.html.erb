@@ -1,0 +1,15 @@
+<%= form_for(@skill) do |f|%>
+<div class="nested-skill">
+  <div class="field">
+    <%= f.label :language, "Language" %>
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
+    <%= f.label :label, "Skill level (1-10)" %>
+    <%= f.number_field(:level, in: 1...10) %>
+  </div>
+  <%= link_to_add_association 'Add a Skill', f, :skills  %>
+</div>
+
+<%= f.submit %>
+<% end %>

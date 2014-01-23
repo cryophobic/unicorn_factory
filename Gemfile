@@ -35,6 +35,8 @@ gem 'binding_of_caller'
 gem 'pry-rails'
 # Using Cocoon for created dynamic nested forms using JQuery
 gem 'cocoon'
+# Using simple_form to ease the cocoon syntax burden
+gem 'simple_form'
 
 gem 'pg'
 

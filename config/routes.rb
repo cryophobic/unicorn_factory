@@ -3,6 +3,7 @@ UnicornFactory::Application.routes.draw do
   resources :user_sessions
   resources :users
   resources :password_resets
+  resources :skills
 
   root :to => 'user_sessions#new'
 
