@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
-
+<% if current_user != @user %>
+  <!-- This render should become the DATA for a user (visible by another) but not dashboard. -->
+  <%= render 'form' %>
+<% else %>
+  <!-- Otherwise, it should display the dashboard. -->
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
+<p> 
+  <strong>Username:</strong>
+  <%= @user.username %>
+<p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<% end %>
