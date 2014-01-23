@@ -1,5 +1,10 @@
+<h1>WELCOME TO UNICORN FACTORY</h1>
+
 <h1>Login</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', user_sessions_path %>
+
+<img src="<%= asset_path 'uni.jpg' %>">
+<%= logged_in? %>

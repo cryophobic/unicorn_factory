@@ -4,7 +4,7 @@ UnicornFactory::Application.routes.draw do
   resources :users
   resources :password_resets
 
-  root :to => 'welcome#index'
+  root :to => 'user_sessions#new'
 
 
   get 'login' => 'user_sessions#new', :as => :login
